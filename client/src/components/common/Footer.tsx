@@ -49,11 +49,26 @@ function Footer() {
               <div>
                 <h6 className="text-xs uppercase text-purple-600 mb-2">INFO</h6>
                 <ul className="text-sm space-y-1 text-gray-700">
-                  <li>Company</li>
-                  <li>Products</li>
-                  <li>Engineering</li>
-                  <li>Services</li>
-                  <li>Productions</li>
+                  <li>
+                    {' '}
+                    <a href="#">Company</a>
+                  </li>
+                  <li>
+                    {' '}
+                    <a href="#">Products</a>
+                  </li>
+                  <li>
+                    {' '}
+                    <a href="#">Engineering</a>
+                  </li>
+                  <li>
+                    {' '}
+                    <a href="#">Services</a>
+                  </li>
+                  <li>
+                    {' '}
+                    <a href="#">Productions</a>
+                  </li>
                 </ul>
               </div>
 
@@ -62,10 +77,20 @@ function Footer() {
                 <h6 className="text-xs uppercase text-purple-600 mb-2">
                   ABOUT US
                 </h6>
+
                 <ul className="text-sm space-y-1 text-gray-700">
-                  <li>Gallery</li>
-                  <li>Technologies</li>
-                  <li>Contacts</li>
+                  <li>
+                    {' '}
+                    <a href="#">Gallery</a>
+                  </li>
+                  <li>
+                    {' '}
+                    <a href="#">Technologies</a>
+                  </li>
+                  <li>
+                    {' '}
+                    <a href="#">Contacts</a>
+                  </li>
                 </ul>
               </div>
 

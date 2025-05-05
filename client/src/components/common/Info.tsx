@@ -1,20 +1,13 @@
+'use client';
 import React from 'react';
-import Image from 'next/image';
 
 function Info() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 text-white">
-      <div className="md:col-span-8">
+    <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+      {/* Sol Alan */}
+      <div className="md:col-span-8 custom-md xl:col-span-8 ">
         <div className="relative rounded-3xl h-70 overflow-hidden">
-          <Image
-            src="/svg/Left2.svg"
-            alt="card"
-            fill
-            className="object-cover"
-            priority
-          />
-
-          <div className="absolute inset-0 z-10 flex flex-col justify-center items-start p-4 md:p-8 bg-black/40">
+          <div className="border-black text-black rounded-3xl absolute inset-0 z-10 flex flex-col justify-center items-start p-4 md:p-8 border-3   ">
             <h2 className="text-2xl md:text-4xl font-black mb-2">
               Bizimle Çalışmaya var mısın?
             </h2>
@@ -27,47 +20,48 @@ function Info() {
                 <li>Özel Tasarım Templat</li>
               </ul>
               <ul className="list-disc ml-5 space-y-1">
-                <li>Teknik Destek</li>
-                <li>Özel Tasarım Templat</li>
+                <li>Mobil Uyum</li>
+                <li>SEO Desteği</li>
               </ul>
               <ul className="list-disc ml-5 space-y-1">
-                <li>Teknik Destek</li>
-                <li>Özel Tasarım Templat</li>
+                <li>Performans Optimizasyonu</li>
+                <li>7/24 Destek</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Mobilde gizleme yerine boşluk bırakılmadan alta geçmesi sağlandı */}
-      <div className="md:col-span-1 hidden md:block" />
-
-      <div className="md:col-span-3">
+      {/* Sağ Alan */}
+      <div className="md:col-span-4 custom-mdxl:col-span-4">
         <div className="relative rounded-3xl h-70 overflow-hidden">
-          <Image
-            src="/svg/Left2.svg"
-            alt="card"
-            fill
-            className="object-cover"
-            priority
-          />
+          <div className="absolute inset-0 z-10 flex flex-col justify-center items-start p-4 md:p-8 border-black rounded-3xl border-3">
+            <h2 className="text-xl md:text-3xl font-bold mb-2">From OMBAYUS</h2>
 
-          <div className="absolute inset-0 z-10 flex flex-col justify-center items-start p-4 md:p-8 bg-black/40">
-            <h2 className="text-xl md:text-4xl font-bold mb-2">From OMBAYUS</h2>
+            <ul className="list-disc ml-5 space-y-1 text-sm md:text-base">
+              <li>Teknik Destek</li>
+              <li>Özel Tasarım Templat</li>
+              <li>Modern UI Kit</li>
+            </ul>
 
-            <div className="text-sm md:text-base">
-              <ul className="list-disc ml-5 space-y-1">
-                <li>Teknik Destek</li>
-                <li>Özel Tasarım Templat</li>
-                <li>Özel Tasarım Templat</li>
-              </ul>
-            </div>
-            <button className="cursor-pointer border-2 rounded-full w-full py-2 mt-4 font-bold text-sm md:text-base">
+            <button className="cursor-pointer border-2 rounded-full w-full py-2 mt-4 font-bold text-sm md:text-base border-black bg-black text-white">
               Get Started
             </button>
           </div>
         </div>
       </div>
+
+      {/* Özel stil tanımı */}
+      <style jsx>{`
+        @media (min-width: 768px) and (max-width: 1279px) {
+          .custom-mdxl\\:col-span-4 {
+            grid-column: span 4 / span 4;
+          }
+          .custom-mdxl\\:col-span-8 {
+            grid-column: span 8 / span 8;
+          }
+        }
+      `}</style>
     </div>
   );
 }
