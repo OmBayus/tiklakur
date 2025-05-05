@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 
 const slides = [
   {
@@ -43,34 +44,32 @@ function Slider() {
   };
 
   return (
-    <div className="relative w-full bg-gray-100 py-16 px-4 flex flex-col items-center overflow-hidden">
-      {/* Sol Dekor */}
+    <div className="relative w-full bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center overflow-hidden">
+      {/* Dekorlar */}
       <Image
         src="/svg/left1.svg"
         alt="left-decor"
-        width={120}
+        width={150}
         height={140}
-        className="absolute left-0 top-2/5 -translate-y-1/2 z-0 pointer-events-none"
+        className="hidden 2xl:block absolute left-0 top-2/5 -translate-y-1/2 z-0 pointer-events-none"
       />
-
-      {/* Sağ Dekor */}
       <Image
         src="/svg/right1.svg"
         alt="right-decor"
-        width={120}
+        width={150}
         height={140}
-        className="absolute right-0 top-3/5 -translate-y-1/2 z-0 pointer-events-none"
+        className="hidden 2xl:block absolute right-0 top-3/5 -translate-y-1/2 z-0 pointer-events-none"
       />
 
       {/* Slider */}
-      <div className="relative z-10 w-full max-w-[1200px] flex flex-col items-center">
-        <div className="relative w-full h-[200px] sm:h-[280px] md:h-[340px] lg:h-[420px] flex items-center justify-center">
-          {/* Sol ok */}
+      <div className="relative z-10 w-full max-w-6xl flex flex-col items-center">
+        <div className="relative w-full h-[220px] sm:h-[280px] md:h-[340px] lg:h-[420px] flex items-center justify-center">
+          {/* Sol Ok */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 sm:left-6 z-30 bg-gray-400/70 hover:bg-gray-500/80 text-white rounded-full min-w-10 min-h-10 sm:w-14 sm:h-14 flex items-center justify-center transition duration-200 active:scale-90"
+            className="cursor-pointer absolute left-2 sm:left-4 z-30 bg-gray-400/70 hover:bg-gray-500/80 text-white rounded-full w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center transition duration-200 active:scale-90"
           >
-            &lt;
+            <FiChevronLeft className="w-6 h-6" />
           </button>
 
           {/* Görseller */}
@@ -96,19 +95,19 @@ function Slider() {
             ))}
           </div>
 
-          {/* Sağ ok */}
+          {/* Sağ Ok */}
           <button
             onClick={nextSlide}
-            className="absolute right-4 sm:right-6 z-30 bg-gray-400/70 hover:bg-gray-500/80 text-white rounded-full min-w-10 min-h-10 sm:w-14 sm:h-14 flex items-center justify-center transition duration-200 active:scale-90"
+            className="cursor-pointer absolute right-2 sm:right-4 z-30 bg-gray-400/70 hover:bg-gray-500/80 text-white rounded-full w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center transition duration-200 active:scale-90"
           >
-            &gt;
+            <FiChevronRight className="w-6 h-6" />
           </button>
         </div>
 
         {/* Açıklama */}
         <div
           key={current}
-          className="cursor-pointer mt-6 text-center transition-opacity duration-500 ease-in-out opacity-0 animate-fadeIn px-2"
+          className="cursor-pointer mt-6 text-center transition-opacity duration-500 ease-in-out opacity-0 animate-fadeIn px-4"
         >
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
             {slides[current].title}
@@ -135,7 +134,7 @@ function Slider() {
         }
         .right {
           left: 50%;
-          transform: translateX(10%) scale(0.92);
+          transform: translateX(0%) scale(0.92);
           opacity: 0.4;
           z-index: 5;
         }
@@ -152,7 +151,7 @@ function Slider() {
             transform: translateX(-50%) scale(1.05);
           }
           .right {
-            transform: translateX(5%) scale(0.9);
+            transform: translateX(2%) scale(0.9);
           }
         }
 
