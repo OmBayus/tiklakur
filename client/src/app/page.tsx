@@ -2,9 +2,8 @@
 import { motion } from 'framer-motion';
 import Navbar from '@/components/common/Navbar';
 import Footer from '@/components/common/Footer';
-import Adım1 from '@/components/common/Adım1';
-import Adım2 from '@/components/common/Adım2';
-import Adım3 from '@/components/common/Adım3';
+import User from '@/components/common/Use';
+
 import Categories from '@/components/common/Categories';
 import Info from '@/components/common/Info';
 import Slider from '@/components/common/Slider';
@@ -83,7 +82,14 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <Adım1 />
+          <User
+            isReversed
+            title="Our Superior"
+            subtitle="Team"
+            buttonText="Adım 1"
+            heading="Lorem Ipsum is simply dummyıhluılh text of the"
+            paragraph="Lorem Ipsum is simply dummy text of the printing and typesetting industry..."
+          />
         </motion.div>
 
         <motion.div
@@ -93,7 +99,14 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <Adım2 />
+          <User
+            isReversed={false}
+            title="Our Superior"
+            subtitle="Team"
+            buttonText="Adım 2"
+            heading="Lorem Ipsum is simply dummy text of the"
+            paragraph="Lorem Ipsum is simply dummy text of the printing and typesetting industry..."
+          />
         </motion.div>
 
         <motion.div
@@ -103,7 +116,14 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <Adım3 />
+          <User
+            isReversed
+            title="Our Superior"
+            subtitle="Team"
+            buttonText="Adım 3"
+            heading="Lorem Ipsum is simply dummy text of the"
+            paragraph="Lorem Ipsum is simply dummy text of thergd printing and typesetting industry..."
+          />
         </motion.div>
       </div>
 
