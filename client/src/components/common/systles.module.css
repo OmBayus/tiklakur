@@ -1,0 +1,4 @@
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px white; /* stroke kalınlığı ve rengi */
+}
