@@ -1,27 +1,24 @@
-package com.ombayus.user.user.entity;
-import com.ombayus.postresql.common.entity.CommonEntity;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+package com.tiklakur.auth.user.entity;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
+import com.tiklakur.mongocommon.MongoCommonEntity;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Getter
+@Setter
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
-@Entity
-@Table(name = "users")
-public class User extends CommonEntity {
+@Document(collection = "users")
+public class User extends MongoCommonEntity {
 
-    @Column(unique = true, nullable = false)
     private String username;
 
-    @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
-    private String role; // ADMIN or USER
+    private String role; // ADMIN,SUPPORT,USER
 }

@@ -1,4 +1,4 @@
-package com.ombayus.user.user.dto;
+package com.tiklakur.auth.user.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

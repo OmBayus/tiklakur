@@ -1,13 +1,13 @@
-package com.ombayus.user.user.service;
+package com.tiklakur.auth.user.service;
 
 
-import com.ombayus.authentication.common.config.JwtConfig;
-import com.ombayus.authentication.common.dto.UserValidateDTO;
-import com.ombayus.user.user.dto.LoginRequest;
-import com.ombayus.user.user.dto.LoginResponse;
-import com.ombayus.user.user.dto.RegisterRequest;
-import com.ombayus.user.user.entity.User;
-import com.ombayus.user.user.repository.UserRepository;
+import com.tiklakur.authentication.common.config.JwtConfig;
+import com.tiklakur.authentication.common.dto.UserValidateDTO;
+import com.tiklakur.auth.user.dto.LoginRequest;
+import com.tiklakur.auth.user.dto.LoginResponse;
+import com.tiklakur.auth.user.dto.RegisterRequest;
+import com.tiklakur.auth.user.entity.User;
+import com.tiklakur.auth.user.repository.UserRepository;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
