@@ -60,7 +60,7 @@ public class JwtConfig {
 
     public String generateToken(UserValidateDTO user) {
         Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, user.getUsername());
+        return createToken(claims, user.getEmail());
     }
 
     private String createToken(Map<String, Object> claims, String subject) {

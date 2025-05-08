@@ -10,7 +10,7 @@ import java.util.Collections;
 public class SecurityUtil {
 
     public static UsernamePasswordAuthenticationToken getAuthentication(UserValidateDTO user) {
-        return new UsernamePasswordAuthenticationToken(user.getUsername(), null, Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.getRole())) );
+        return new UsernamePasswordAuthenticationToken(user.getEmail(), null, Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.getRole())) );
     }
 
     public static void setUserInContext(UserValidateDTO user) {

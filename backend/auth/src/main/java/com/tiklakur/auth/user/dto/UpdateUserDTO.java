@@ -11,11 +11,13 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class RegisterRequest {
+public class UpdateUserDTO {
     @NotBlank(message = "Email is required")
     @Email(message = "Invalid email format")
     private String email;
 
-    @NotBlank(message = "Password is required")
-    private String password;
-}
+    private String password; // Optional for updates
+
+    @NotBlank(message = "Role is required")
+    private String role; // ADMIN,SUPPORT,USER
+} 

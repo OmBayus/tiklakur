@@ -1,11 +1,11 @@
 package com.tiklakur.auth.user.controller;
 
-
 import com.tiklakur.authentication.common.dto.UserValidateDTO;
 import com.tiklakur.auth.user.dto.LoginRequest;
 import com.tiklakur.auth.user.dto.LoginResponse;
 import com.tiklakur.auth.user.dto.RegisterRequest;
 import com.tiklakur.auth.user.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -22,12 +22,12 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest loginRequest) {
         return ResponseEntity.ok(this.userService.login(loginRequest));
     }
 
     @PostMapping("/register")
-    public ResponseEntity<LoginResponse> register(@RequestBody RegisterRequest registerRequest) {
+    public ResponseEntity<LoginResponse> register(@Valid @RequestBody RegisterRequest registerRequest) {
         return ResponseEntity.ok(this.userService.register(registerRequest));
     }
 
@@ -43,10 +43,8 @@ public class AuthController {
             throw new SecurityException("Authentication required");
         }
         UserValidateDTO userValidateDTO = new UserValidateDTO();
-        userValidateDTO.setUsername(authentication.getName());
+        userValidateDTO.setEmail(authentication.getName());
         userValidateDTO.setRole(authentication.getAuthorities().iterator().next().getAuthority().replace("ROLE_", ""));
-        return ResponseEntity.ok(
-                userValidateDTO
-        );
+        return ResponseEntity.ok(userValidateDTO);
     }
 }
