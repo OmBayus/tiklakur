@@ -25,7 +25,7 @@ const Header = () => {
   }, []);
 
   return (
-    <nav className="relative w-full pt-6 md:pt-4 pb-2 flex items-center justify-between">
+    <nav className="relative w-full pt-6 md:pt-4 pb-2 flex items-center justify-between px-4 sm:px-8 lg:px-[144px]">
       <div className="flex justify-between items-center w-full">
         {/* Logo */}
         <a href="#" className="flex items-center space-x-2 cursor-pointer">
