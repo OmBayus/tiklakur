@@ -5,8 +5,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface TenantContentRepository extends MongoRepository<TenantContent, String> {
-    List<TenantContent> findByTenantId(String tenantId);
+    Optional<TenantContent> findByTenantId(String tenantId);
 }

@@ -13,6 +13,5 @@ import java.util.Map;
 @AllArgsConstructor
 public class TenantContentRequestDTO {
     private String tenantId;
-    private String templateId;
     private Map<String, Object> content;
 } 

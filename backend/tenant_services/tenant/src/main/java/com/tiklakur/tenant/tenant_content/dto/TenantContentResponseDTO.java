@@ -15,7 +15,6 @@ import java.util.Map;
 public class TenantContentResponseDTO {
     private String id;
     private String tenantId;
-    private String templateId;
     private Map<String, Object> content;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

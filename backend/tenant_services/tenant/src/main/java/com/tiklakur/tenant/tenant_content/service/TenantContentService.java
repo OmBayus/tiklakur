@@ -36,10 +36,9 @@ public class TenantContentService {
                 .map(tenantContentMapper::toResponseDTO);
     }
 
-    public List<TenantContentResponseDTO> getTenantContentsByTenantId(String tenantId) {
-        return tenantContentRepository.findByTenantId(tenantId).stream()
-                .map(tenantContentMapper::toResponseDTO)
-                .collect(Collectors.toList());
+    public TenantContentResponseDTO getTenantContentsByTenantId(String tenantId) {
+        Optional<TenantContent> tenantContent = tenantContentRepository.findByTenantId(tenantId);
+        return tenantContent.map(tenantContentMapper::toResponseDTO).orElse(null);
     }
 
     public TenantContentResponseDTO updateTenantContent(String id, TenantContentRequestDTO requestDTO) {

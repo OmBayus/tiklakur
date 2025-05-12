@@ -39,7 +39,7 @@ public class TenantContentController {
     }
 
     @GetMapping("/tenant/{tenantId}")
-    public ResponseEntity<List<TenantContentResponseDTO>> getTenantContentsByTenantId(@PathVariable String tenantId) {
+    public ResponseEntity<TenantContentResponseDTO> getTenantContentsByTenantId(@PathVariable String tenantId) {
         if (isTenantExpired(tenantId)) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
