@@ -1006,7 +1006,7 @@ export default function SpecialRequestForm({
             </div>
             <h3 className="text-xl font-bold mb-2">Request Submitted!</h3>
             <p className="text-gray-600 mb-4">
-              Thank you for your request. We'll get back to you within 1-2
+              Thank you for your request. We will get back to you within 1-2
               business days.
             </p>
 
