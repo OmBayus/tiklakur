@@ -20,8 +20,6 @@ public class LoggingAspect {
     private final HttpServletRequest request;
     private final ObjectMapper objectMapper;
 
-
-
     @Pointcut("execution(* com.tiklakur..service..*(..))")
     public void applicationServiceMethods() {
     }
@@ -35,6 +33,12 @@ public class LoggingAspect {
         logDetails(joinPoint);
     }
 
+    @AfterThrowing(pointcut = "applicationLoggerAnnotation()", throwing = "exception")
+    public void logError(JoinPoint joinPoint, Exception exception){
+        logErrorDetails(joinPoint, exception);
+    }
+
+
     private void logDetails (JoinPoint joinPoint){
         String method = request.getMethod();
         String endpoint = request.getRequestURI();
@@ -42,6 +46,18 @@ public class LoggingAspect {
         String clientIp = request.getRemoteAddr();
         logger.info("✅ Client IP: {} | HTTP Method: {} | Endpoint: {} | Payload : {}", clientIp, method, endpoint,Arrays.toString(args));
 
+    }
+
+    private void logErrorDetails (JoinPoint joinPoint, Exception exception){
+        String method = request.getMethod();
+        String endpoint = request.getRequestURI();
+        String clientIp = request.getRemoteAddr();
+        Object[] args = joinPoint.getArgs();
+
+        String payload = args.length == 0 ? "" : extractPayload(args);
+
+        logger.error("❌ Exception occurred at: {} | HTTP Method: {} | Endpoint: {} | Payload : {} | Client IP: {} | Exception: {}",
+                joinPoint.getSignature(), method, endpoint,payload, clientIp, exception.getMessage());
     }
 
     private String extractPayload(Object[] args) {
