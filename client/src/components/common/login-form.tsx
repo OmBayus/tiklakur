@@ -38,7 +38,7 @@ export default function LoginPage() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label htmlFor="password">Şifre</Label>
-            <Link href="#" className="text-sm text-primary hover:underline">
+            <Link href="/auth/forgot-password" className="text-sm text-primary hover:underline">
               Şifremi Unuttum
             </Link>
           </div>
