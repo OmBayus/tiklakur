@@ -1,13 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Star } from 'lucide-react';
+
 import { motion } from 'framer-motion';
 
 import Navbar from '@/components/common/Navbar';
 import Footer from '@/components/common/Footer';
+
+import ProductCard from '@/components/common/ProductCard';
 import {
   Select,
   SelectContent,
@@ -29,83 +29,102 @@ const fadeUp = {
 const products = [
   {
     id: 1,
-    title: 'Viasun',
+    title: 'Viasun Shop',
     category: 'HTML',
     price: 19,
-    image: '/png/images.jpg',
+    imageSrc: '/png/deneme.jpg',
     rating: 4.8,
-    sales: 234,
-    isNew: true,
+    pages: 8,
+    downloads: 234,
+    description: 'Modern ve hızlı e-ticaret şablonu',
   },
   {
     id: 2,
-    title: 'Matias',
+    title: 'Matias React',
     category: 'React',
     price: 24,
-    image: '/png/images.jpg',
+    imageSrc: '/png/deneme.jpg',
     rating: 4.9,
-    sales: 412,
-    isNew: false,
+    pages: 12,
+    downloads: 412,
+    description: 'Çok amaçlı React template',
   },
   {
     id: 3,
-    title: 'Ashley',
+    title: 'Ashley Blog',
     category: 'HTML',
     price: 17,
-    image: '/png/images.jpg',
+    imageSrc: '/png/deneme.jpg',
     rating: 4.7,
-    sales: 187,
-    isNew: true,
+    pages: 6,
+    downloads: 187,
+    description: 'Kişisel blog için şık tasarım',
   },
   {
     id: 4,
-    title: 'Maxton',
+    title: 'Maxton Admin',
     category: 'HTML',
     price: 22,
-    image: '/png/images.jpg',
+    imageSrc: '/png/deneme.jpg',
     rating: 4.6,
-    sales: 152,
-    isNew: false,
+    pages: 14,
+    downloads: 152,
+    description: 'Yönetim paneli şablonu',
   },
   {
     id: 5,
-    title: 'Grax',
+    title: 'Grax Landing',
     category: 'React',
     price: 28,
-    image: '/png/images.jpg',
+    imageSrc: '/png/deneme.jpg',
     rating: 4.8,
-    sales: 298,
-    isNew: true,
+    pages: 4,
+    downloads: 298,
+    description: 'Startup için landing page',
   },
   {
     id: 6,
-    title: 'WowDash',
+    title: 'WowDash Dashboard',
     category: 'HTML',
     price: 15,
-    image: '/png/images.jpg',
+    imageSrc: '/png/deneme.jpg',
     rating: 4.3,
-    sales: 100,
-    isNew: false,
+    pages: 10,
+    downloads: 100,
+    description: 'Minimalist dashboard şablonu',
   },
   {
     id: 7,
-    title: 'Duralux',
+    title: 'Duralux Portfolio',
     category: 'React',
     price: 34,
-    image: '/png/images.jpg',
+    imageSrc: '/png/deneme.jpg',
     rating: 4.9,
-    sales: 376,
-    isNew: true,
+    pages: 7,
+    downloads: 376,
+    description: 'Yaratıcı portföy sitesi',
   },
   {
     id: 8,
-    title: 'Open9',
+    title: 'Open9 Agency',
     category: 'HTML',
     price: 18,
-    image: '/png/images.jpg',
+    imageSrc: '/png/deneme.jpg',
     rating: 4.4,
-    sales: 163,
-    isNew: false,
+    pages: 9,
+    downloads: 163,
+    description: 'Ajanslar için modern şablon',
+  },
+  {
+    id: 9,
+    title: 'Flexify SaaS',
+    category: 'React',
+    price: 39,
+    imageSrc: '/png/deneme.jpg',
+    rating: 5.0,
+    pages: 15,
+    downloads: 500,
+    description: 'SaaS projeleri için profesyonel template',
   },
 ];
 
@@ -137,6 +156,7 @@ export default function Products() {
   const [isServiceOpen, setIsServiceOpen] = useState(false);
   const [isBudgetOpen, setIsBudgetOpen] = useState(false);
   const [isDeliveryOpen, setIsDeliveryOpen] = useState(false);
+  const [isSortOpen, setIsSortOpen] = useState(false);
 
   useEffect(() => {
     let result = [...products];
@@ -165,10 +185,10 @@ export default function Products() {
 
     switch (sortBy) {
       case 'popular':
-        result.sort((a, b) => b.sales - a.sales);
+        result.sort((a, b) => b.downloads - a.downloads);
         break;
       case 'newest':
-        result.sort((a, b) => Number(b.isNew) - Number(a.isNew));
+        result.sort((a, b) => b.id - a.id);
         break;
       case 'price-low':
         result.sort((a, b) => a.price - b.price);
@@ -192,9 +212,8 @@ export default function Products() {
 
   return (
     <main className="min-h-screen flex flex-col">
+      <Navbar />
       <div className="w-full px-4 sm:px-8 lg:px-[144px] flex-1 mt-6">
-        <Navbar />
-
         <motion.div
           className="mt-6"
           variants={fadeUp}
@@ -220,14 +239,14 @@ export default function Products() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3 ">
             <Select open={isServiceOpen} onOpenChange={setIsServiceOpen}>
               <SelectTrigger
-                className={`w-[180px] border-2 border-black cursor-pointer ${
+                className={`w-[180px] rounded-3xl border-2 border-black cursor-pointer ${
                   isServiceOpen ? 'font-bold' : ''
                 } focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-none shadow-none`}
               >
-                <span className="flex items-center">Service Type</span>
+                <span className="flex items-center ">Service Type</span>
               </SelectTrigger>
               <SelectContent>
                 {serviceTypes.map((type) => (
@@ -261,16 +280,24 @@ export default function Products() {
               onOpenChange={setIsBudgetOpen}
             >
               <SelectTrigger
-                className={`w-[150px] border-2 border-black ${
-                  isBudgetOpen ? 'font-bold' : ''
+                className={`w-[150px] rounded-3xl border-2 border-black cursor-pointer ${
+                  isBudgetOpen || selectedBudget !== 'any' ? 'font-bold' : ''
                 } focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-none shadow-none`}
               >
-                Budget
+                <SelectValue placeholder="Budget" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="any">Any</SelectItem>
                 {budgetRanges.map((range) => (
-                  <SelectItem key={range.value} value={range.value}>
+                  <SelectItem
+                    key={range.value}
+                    value={range.value}
+                    className={
+                      selectedBudget === range.value
+                        ? 'font-semibold bg-gray-100'
+                        : ''
+                    }
+                  >
                     {range.name}
                   </SelectItem>
                 ))}
@@ -284,35 +311,64 @@ export default function Products() {
               onOpenChange={setIsDeliveryOpen}
             >
               <SelectTrigger
-                className={`w-[180px] border-2 border-black ${
-                  isDeliveryOpen ? 'font-bold' : ''
+                className={`w-[180px] rounded-3xl border-2 border-black cursor-pointer ${
+                  isDeliveryOpen || selectedDelivery !== 'any'
+                    ? 'font-bold'
+                    : ''
                 } focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-none shadow-none`}
               >
-                Delivery Time
+                <SelectValue placeholder="Delivery Time" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="any">Any</SelectItem>
                 {deliveryTimes.map((time) => (
-                  <SelectItem key={time.value} value={time.value}>
+                  <SelectItem
+                    key={time.value}
+                    value={time.value}
+                    className={
+                      selectedDelivery === time.value
+                        ? 'font-semibold bg-gray-100'
+                        : ''
+                    }
+                  >
                     {time.name}
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
 
-            <div className="flex items-center gap-2 ml-auto">
-              <span className="text-sm text-muted-foreground hidden sm:inline">
-                Sort:
-              </span>
-              <Select value={sortBy} onValueChange={setSortBy}>
-                <SelectTrigger className="w-[160px]">
-                  <SelectValue placeholder="Sort by" />
+            <div className="flex items-center gap-2 ml-auto ">
+              <Select
+                value={sortBy}
+                onValueChange={setSortBy}
+                open={isSortOpen}
+                onOpenChange={setIsSortOpen}
+              >
+                <SelectTrigger
+                  className={`w-[200px] rounded-3xl border-2 cursor-pointer border-black ${
+                    isSortOpen || sortBy !== 'popular' ? 'font-bold' : ''
+                  } focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:outline-none shadow-none flex justify-between items-center px-3`}
+                >
+                  <span
+                    className={`text-sm text-gray-700 ${
+                      sortBy !== 'popular' ? 'font-bold' : ''
+                    }`}
+                  >
+                    Sort:
+                  </span>
+                  <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
+                  <div className="px-3 pt-2 pb-1">
+                    <span className="text-xs font-bold text-gray-500">
+                      Sort:
+                    </span>
+                    <div className="border-b border-gray-300 mt-1"></div>
+                  </div>
                   <SelectItem value="popular">Most Popular</SelectItem>
-                  <SelectItem value="newest">Newest</SelectItem>
-                  <SelectItem value="price-low">Price: Low to High</SelectItem>
-                  <SelectItem value="price-high">Price: High to Low</SelectItem>
+
+                  <SelectItem value="price-low">Low to High</SelectItem>
+                  <SelectItem value="price-high">High to Low</SelectItem>
                   <SelectItem value="rating">Highest Rated</SelectItem>
                 </SelectContent>
               </Select>
@@ -320,6 +376,7 @@ export default function Products() {
           </div>
         </motion.div>
 
+        {/* Ürünler grid */}
         <motion.div
           className="mt-10"
           variants={fadeUp}
@@ -327,37 +384,18 @@ export default function Products() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 cursor-pointer">
             {filteredProducts.map((product) => (
-              <Link
+              <ProductCard
                 key={product.id}
-                href={`/product/${product.id}`}
-                className="group"
-              >
-                <div className="relative aspect-[16/9] rounded-md overflow-hidden">
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 25vw, 25vw"
-                  />
-                  <div className="absolute top-3 right-3 bg-white px-2 py-1 rounded-full text-sm font-medium flex items-center shadow">
-                    <Star className="w-3 h-3 text-yellow-500 fill-yellow-500 mr-1" />
-                    {product.rating.toFixed(1)}
-                  </div>
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-3 right-3 bg-white text-black font-semibold text-sm px-3 py-1 rounded-full">
-                      ${product.price}
-                    </div>
-                    <div className="absolute top-3 left-3 pr-10">
-                      <h3 className="text-white text-sm font-medium line-clamp-2">
-                        {product.title}
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </Link>
+                title={product.title}
+                description={product.description}
+                category={product.category}
+                rating={product.rating}
+                price={product.price}
+                downloads={product.downloads}
+                imageSrc={product.imageSrc}
+              />
             ))}
           </div>
         </motion.div>
