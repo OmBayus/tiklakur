@@ -175,7 +175,7 @@ export default function SpecialRequestForm({
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  });
 
   // Reset form after success message is shown
   useEffect(() => {
