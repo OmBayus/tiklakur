@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -186,7 +186,8 @@ const products = [
   },
 ];
 
-export default function ProductDetail({ params }: { params: { id: string } }) {
+export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   const [product, setProduct] = useState<Product | null>(null);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -197,7 +198,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
 
   useEffect(() => {
     // In a real app, this would be an API call
-    const productId = Number.parseInt(params.id);
+    const productId = Number.parseInt(id);
     console.log('Looking for product with ID:', productId);
 
     // Default to first product if ID is invalid
@@ -224,7 +225,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
     } else {
       console.error('No products available');
     }
-  }, [params.id]);
+  }, [id]);
 
   const handleAddToCart = () => {
     // In a real app, this would add to cart in state management or localStorage
