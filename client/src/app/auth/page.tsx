@@ -5,6 +5,7 @@ import LoginPage from '@/components/common/login-form';
 import SignupPage from '@/components/common/signup-form';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Home() {
   const [activeForm, setActiveForm] = useState<'login' | 'signup'>('login');
@@ -32,8 +33,22 @@ export default function Home() {
 
   return (
     <main className="min-h-screen flex flex-col md:flex-row">
+      {/* Navbar */}
+      <nav className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
+        <div className="container mx-auto py-3 flex justify-center items-center">
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-2xl font-bold tracking-tight text-gray-900 hover:text-primary transition-colors"
+          >
+            <div className="w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
+            <span className="font-semibold text-lg">envato</span>
+          </Link>
+        </div>
+      </nav>
+      {/* Navbar ile içerik arasında boşluk */}
+
       {/* Sol: Giriş / Kayıt Formu */}
-      <div className="w-full md:w-7/12 p-6 flex items-center justify-center">
+      <div className=" w-full md:w-7/12 p-6 flex items-center justify-center">
         <div className="w-full max-w-md">
           <div className="mb-8">
             <div className="flex border-b">
@@ -65,7 +80,8 @@ export default function Home() {
       </div>
 
       {/* Sağ: Slider İçerik - sadece md ve üzeri görünür */}
-      <div className="hidden right-[5%] md:flex w-full md:w-5/12 items-center justify-center p-6 relative">
+
+      <div className=" hidden right-[5%] md:flex w-full md:w-5/12 items-center justify-center p-6 relative">
         <div className="relative w-full rounded-3xl overflow-hidden max-w-3xl">
           <AnimatePresence mode="wait">
             <motion.div
