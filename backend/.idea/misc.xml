@@ -9,6 +9,8 @@
         <option value="$PROJECT_DIR$/parent/common/pom.xml" />
         <option value="$PROJECT_DIR$/parent/authentication-common/pom.xml" />
         <option value="$PROJECT_DIR$/auth/pom.xml" />
+        <option value="$PROJECT_DIR$/tenant/pom.xml" />
+        <option value="$PROJECT_DIR$/tenant_services/tenant/pom.xml" />
       </list>
     </option>
   </component>

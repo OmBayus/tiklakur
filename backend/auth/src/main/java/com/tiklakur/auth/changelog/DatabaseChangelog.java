@@ -13,9 +13,9 @@ public class DatabaseChangelog {
     public void insertDefaultAdmins (MongockTemplate mongoTemplate){
         if(mongoTemplate.findAll(User.class).isEmpty()){
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-            User user1= new User("firdyak",encoder.encode("firdyak123"),"ADMIN");
-            User user2= new User("ombayus",encoder.encode("ombayus123"),"ADMIN");
-            User user3= new User("cemilacuner",encoder.encode("cemilacuner123"),"ADMIN");
+            User user1= new User("firdyak@tiklakur.com",encoder.encode("firdyak123"),"ADMIN");
+            User user2= new User("ombayus@tiklakur.com",encoder.encode("ombayus123"),"ADMIN");
+            User user3= new User("cemilacuner@tiklakur.com",encoder.encode("cemilacuner123"),"ADMIN");
             mongoTemplate.save(user1);
             mongoTemplate.save(user2);
             mongoTemplate.save(user3);
