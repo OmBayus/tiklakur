@@ -3,12 +3,15 @@
 import { useState } from 'react';
 import LoginPage from '@/components/common/login-form';
 import SignupPage from '@/components/common/signup-form';
+import ForgotPasswordForm from '@/components/common/forgot-password';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
 export default function Home() {
   const [activeForm, setActiveForm] = useState<'login' | 'signup'>('login');
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+
   const [activeIndex, setActiveIndex] = useState(0);
 
   const contentList = [
@@ -48,34 +51,66 @@ export default function Home() {
       {/* Navbar ile içerik arasında boşluk */}
 
       {/* Sol: Giriş / Kayıt Formu */}
-      <div className=" w-full md:w-7/12 p-6 flex items-center justify-center">
+      <div className="w-full md:w-7/12 p-6 flex items-center justify-center">
         <div className="w-full max-w-md">
-          <div className="mb-8">
-            <div className="flex border-b">
-              <button
-                onClick={() => setActiveForm('login')}
-                className={`py-2 px-4 w-1/2 text-center cursor-pointer ${
-                  activeForm === 'login'
-                    ? 'border-b-2 border-primary font-medium'
-                    : 'text-muted-foreground'
-                }`}
-              >
-                Giriş Yap
-              </button>
-              <button
-                onClick={() => setActiveForm('signup')}
-                className={`py-2 px-4 w-1/2 text-center cursor-pointer ${
-                  activeForm === 'signup'
-                    ? 'border-b-2 border-primary font-medium'
-                    : 'text-muted-foreground'
-                }`}
-              >
-                Kayıt Ol
-              </button>
+          {!showForgotPassword && (
+            <div className="mb-8">
+              <div className="flex border-b">
+                <button
+                  onClick={() => setActiveForm('login')}
+                  className={`py-2 px-4 w-1/2 text-center cursor-pointer ${
+                    activeForm === 'login'
+                      ? 'border-b-2 border-primary font-medium'
+                      : 'text-muted-foreground'
+                  }`}
+                >
+                  Giriş Yap
+                </button>
+                <button
+                  onClick={() => setActiveForm('signup')}
+                  className={`py-2 px-4 w-1/2 text-center cursor-pointer ${
+                    activeForm === 'signup'
+                      ? 'border-b-2 border-primary font-medium'
+                      : 'text-muted-foreground'
+                  }`}
+                >
+                  Kayıt Ol
+                </button>
+              </div>
             </div>
-          </div>
+          )}
 
-          {activeForm === 'login' ? <LoginPage /> : <SignupPage />}
+          {showForgotPassword ? (
+            <div>
+              <button
+                onClick={() => setShowForgotPassword(false)}
+                className="mb-4 text-sm text-primary hover:underline flex items-center gap-2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m15 18-6-6 6-6"/>
+                </svg>
+                Giriş sayfasına dön
+              </button>
+              <ForgotPasswordForm />
+            </div>
+          ) : (
+            <>
+              {activeForm === 'login' && (
+                <LoginPage onForgotPassword={() => setShowForgotPassword(true)} />
+              )}
+              {activeForm === 'signup' && <SignupPage />}
+            </>
+          )}
         </div>
       </div>
 
