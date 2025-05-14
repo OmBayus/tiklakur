@@ -92,3 +92,8 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Ensure dark mode works properly */
+.dark body {
+  color-scheme: dark;
+}

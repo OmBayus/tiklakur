@@ -2,6 +2,7 @@ import { Mail, Github, Linkedin, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { ThemeToggle } from "./components/theme-toggle"
 
 // This simulates a data fetch that takes time
 async function getPortfolioData() {
@@ -18,9 +19,9 @@ export default async function Portfolio() {
   const data = await getPortfolioData()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       {/* Navigation */}
-      <header className="sticky top-0 z-40 w-full border-b bg-white/80 dark:bg-gray-950/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-gray-950/60">
+      <header className="sticky top-0 z-40 w-full border-b bg-white/80 dark:bg-gray-950/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-gray-950/60 transition-colors duration-300">
         <div className="container max-w-5xl mx-auto flex h-16 items-center justify-between px-4">
           <div className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500">
             {data.personal.name}
@@ -43,12 +44,15 @@ export default async function Portfolio() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
             </a>
           </nav>
-          <Button
-            size="sm"
-            className="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 transition-all duration-300 shadow-md hover:shadow-lg"
-          >
-            Download CV
-          </Button>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <Button
+              size="sm"
+              className="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 transition-all duration-300 shadow-md hover:shadow-lg"
+            >
+              Download CV
+            </Button>
+          </div>
         </div>
       </header>
 
@@ -323,6 +327,11 @@ export default async function Portfolio() {
           </div>
         </div>
       </footer>
+
+      {/* Mobile Theme Toggle */}
+      <div className="fixed bottom-6 right-6 md:hidden z-50">
+        <ThemeToggle />
+      </div>
     </div>
   )
 }
