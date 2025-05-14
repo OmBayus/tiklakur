@@ -14,6 +14,10 @@
             <artifactId>mongo-common</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.tiklakur</groupId>
+            <artifactId>log-common</artifactId>
+        </dependency>
     </dependencies>
     <modelVersion>4.0.0</modelVersion>
 
