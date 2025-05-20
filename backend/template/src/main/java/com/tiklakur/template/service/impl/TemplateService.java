@@ -1,4 +1,4 @@
-package com.tiklakur.template.service;
+package com.tiklakur.template.service.impl;
 
 import com.tiklakur.template.repository.TemplateRepository;
 import org.springframework.stereotype.Service;

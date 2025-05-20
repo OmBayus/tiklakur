@@ -11,15 +11,11 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TemplateDto {
+public class TemplateResponseDTO {
 
-
-    @NotBlank(message = "İsim boş olamaz")
     private String name;
 
-    @NotBlank(message = "Kategori boş olamaz")
     private String category;
 
-    @NotNull(message = "Sections listesi boş olamaz")
-    private List<SectionDto> sections;
+    private List<SectionResponseDTO> sections;
 }
