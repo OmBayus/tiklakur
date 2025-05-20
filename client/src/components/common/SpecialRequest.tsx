@@ -507,7 +507,7 @@ export default function SpecialRequestForm({
             </div>
 
             {dropdowns.requestType && (
-              <div className="absolute z-10 mt-1 w-full bg-white shadow-lg border border-gray-300 rounded-xl">
+              <div className="absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-xl">
                 <ul className="py-1 max-h-60 overflow-auto">
                   {requestTypes.map((type) => (
                     <li
@@ -559,7 +559,7 @@ export default function SpecialRequestForm({
             </div>
 
             {dropdowns.templateCategory && (
-              <div className="absolute z-10 mt-1 w-full bg-white shadow-lg border border-gray-300 rounded-xl">
+              <div className="absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-xl">
                 <ul className="py-1 max-h-60 overflow-auto">
                   {templateCategories.map((category) => (
                     <li
@@ -615,7 +615,7 @@ export default function SpecialRequestForm({
             </div>
 
             {dropdowns.budget && (
-              <div className="absolute z-10 mt-1 w-full bg-white shadow-lg border border-gray-300 rounded-xl">
+              <div className="absolute z-10 mt-1 w-full bg-white  border border-gray-300 rounded-xl">
                 <ul className="py-1 max-h-60 overflow-auto">
                   {budgetRanges.map((range) => (
                     <li
@@ -667,7 +667,7 @@ export default function SpecialRequestForm({
             </div>
 
             {dropdowns.timeline && (
-              <div className="absolute z-10 mt-1 w-full bg-white shadow-lg border border-gray-300 rounded-xl">
+              <div className="absolute z-10 mt-1 w-full bg-white  border border-gray-300 rounded-xl">
                 <ul className="py-1 max-h-60 overflow-auto">
                   {timelineOptions.map((option) => (
                     <li
@@ -755,7 +755,7 @@ export default function SpecialRequestForm({
             </div>
 
             {dropdowns.style && (
-              <div className="absolute z-10 mt-1 w-full bg-white shadow-lg border border-gray-300 rounded-xl">
+              <div className="absolute z-10 mt-1 w-full bg-white  border border-gray-300 rounded-xl">
                 <ul className="py-1 max-h-60 overflow-auto">
                   {styleOptions.map((style) => (
                     <li
@@ -809,7 +809,7 @@ export default function SpecialRequestForm({
             </div>
 
             {dropdowns.colorScheme && (
-              <div className="absolute z-10 mt-1 w-full bg-white shadow-lg border border-gray-300 rounded-xl">
+              <div className="absolute z-10 mt-1 w-full bg-white  border border-gray-300 rounded-xl">
                 <ul className="py-1 max-h-60 overflow-auto">
                   {colorSchemeOptions.map((scheme) => (
                     <li
@@ -976,15 +976,11 @@ export default function SpecialRequestForm({
   return (
     <div className={`max-w-4xl mx-auto ${className}`}>
       <div
-        className="border border-gray-300 rounded-3xl overflow-hidden shadow-lg bg-white"
+        className="rounded-3xl overflow-hidden  bg-white"
         style={{ maxWidth: '100%' }}
       >
-        <div className="bg-black text-white p-8">
+        <div className="bg-gray-100 text-black p-8 h-24">
           <h2 className="text-2xl font-bold">Special Template Request</h2>
-          <p className="text-gray-300 mt-2">
-            Tell us about your specific template needs and our design team will
-            create a custom solution for you.
-          </p>
         </div>
 
         {isSuccess ? (

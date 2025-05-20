@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { RequestWithStatus } from './request-list.tsx';
+import type { UnifiedRequest } from './request-list';
 
 export type StatusOption =
   | 'in-progress'
@@ -11,7 +11,7 @@ export type StatusOption =
   | 'completed';
 
 type ApprovedRequestsProps = {
-  requests: RequestWithStatus[];
+  requests: UnifiedRequest[];
   onStatusUpdate?: (id: string, status: StatusOption) => void;
   className?: string;
 };
@@ -242,34 +242,6 @@ export default function ApprovedRequests({
                         </div>
                       </div>
 
-                      <div className="flex flex-wrap gap-2 mt-3">
-                        <span className="px-3 py-1 bg-gray-100 rounded-full text-xs">
-                          {request.budget}
-                        </span>
-                        <span className="px-3 py-1 bg-gray-100 rounded-full text-xs">
-                          {request.timeline}
-                        </span>
-                        {request.technicalRequirements.frameworks
-                          .slice(0, 2)
-                          .map((framework) => (
-                            <span
-                              key={framework}
-                              className="px-3 py-1 bg-gray-100 rounded-full text-xs"
-                            >
-                              {framework}
-                            </span>
-                          ))}
-                        {request.technicalRequirements.frameworks.length >
-                          2 && (
-                          <span className="px-3 py-1 bg-gray-100 rounded-full text-xs">
-                            +
-                            {request.technicalRequirements.frameworks.length -
-                              2}{' '}
-                            more
-                          </span>
-                        )}
-                      </div>
-
                       {expandedRequestId === request.id && (
                         <div className="mt-4 pt-4 border-t border-gray-200">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -290,7 +262,7 @@ export default function ApprovedRequests({
                                     Style:
                                   </span>
                                   <span className="text-sm">
-                                    {request.designPreferences.style}
+                                    {request?.designPreferences?.style}
                                   </span>
                                 </div>
                                 <div className="flex">
@@ -298,7 +270,7 @@ export default function ApprovedRequests({
                                     Color Scheme:
                                   </span>
                                   <span className="text-sm">
-                                    {request.designPreferences.colorScheme}
+                                    {request?.designPreferences?.colorScheme}
                                   </span>
                                 </div>
                               </div>
@@ -309,7 +281,7 @@ export default function ApprovedRequests({
                                 Required Features
                               </h4>
                               <div className="flex flex-wrap gap-2">
-                                {request.features.map((feature) => (
+                                {request?.features?.map((feature) => (
                                   <span
                                     key={feature}
                                     className="px-3 py-1 bg-gray-100 rounded-full text-xs"
@@ -328,7 +300,7 @@ export default function ApprovedRequests({
                                     Responsive:
                                   </span>
                                   <span className="text-sm">
-                                    {request.technicalRequirements.responsive
+                                    {request?.technicalRequirements?.responsive
                                       ? 'Yes'
                                       : 'No'}
                                   </span>
@@ -338,7 +310,7 @@ export default function ApprovedRequests({
                                     Frameworks:
                                   </span>
                                   <div className="flex flex-wrap gap-2 mt-1">
-                                    {request.technicalRequirements.frameworks.map(
+                                    {request?.technicalRequirements?.frameworks.map(
                                       (framework) => (
                                         <span
                                           key={framework}
