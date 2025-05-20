@@ -11,14 +11,19 @@
         <module name="authentication-common" />
         <module name="common" />
         <module name="user" />
+        <module name="tenant" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="deneme" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="authentication-common" options="-parameters" />
       <module name="common" options="-parameters" />
       <module name="mongo-common" options="-parameters" />
+      <module name="tenant" options="-parameters" />
       <module name="user" options="-parameters" />
     </option>
   </component>

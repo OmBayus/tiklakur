@@ -65,7 +65,7 @@ const Header = () => {
           {/* Giriş Yap */}
           <div className="hidden xl:flex items-center ml-6">
             <a
-              href="#"
+              href="/auth"
               className="w-[170px] py-2 text-sm border-2 border-black rounded-full text-center whitespace-nowrap font-medium transition-colors duration-200 hover:bg-black hover:text-white"
             >
               Giriş Yap

@@ -1,0 +1,58 @@
+{
+  "personal": {
+    "name": "John Doe",
+    "title": "Frontend Developer",
+    "bio": "Frontend Developer specializing in building exceptional digital experiences",
+    "email": "john.doe@example.com",
+    "github": "github.com/johndoe",
+    "linkedin": "linkedin.com/in/johndoe",
+    "profileImage": "/placeholder.svg?height=320&width=320"
+  },
+  "about": {
+    "paragraphs": [
+      "I'm a passionate Frontend Developer with 5+ years of experience creating responsive, user-friendly web applications. I specialize in React, Next.js, and modern CSS frameworks.",
+      "My journey in web development started at University of Technology where I earned my Bachelor's degree in Computer Science. Since then, I've worked with startups and established companies to build products that users love.",
+      "When I'm not coding, you can find me hiking, reading sci-fi novels, or experimenting with new technologies."
+    ],
+    "stats": [
+      { "value": "5+", "label": "Years Experience" },
+      { "value": "50+", "label": "Projects Completed" },
+      { "value": "20+", "label": "Happy Clients" },
+      { "value": "10+", "label": "Technologies" }
+    ]
+  },
+  "skills": [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "HTML5",
+    "CSS3",
+    "Tailwind CSS",
+    "Node.js",
+    "Git",
+    "Figma",
+    "Responsive Design",
+    "UI/UX"
+  ],
+  "projects": [
+    {
+      "title": "E-commerce Platform",
+      "description": "A full-featured online store with cart, checkout, and payment integration.",
+      "tags": ["React", "Next.js", "Stripe", "Tailwind CSS"],
+      "image": "/placeholder.svg?height=200&width=400"
+    },
+    {
+      "title": "Task Management App",
+      "description": "A productivity app for teams with real-time updates and collaboration features.",
+      "tags": ["React", "Firebase", "Material UI"],
+      "image": "/placeholder.svg?height=200&width=400"
+    },
+    {
+      "title": "Portfolio Website",
+      "description": "A custom portfolio site for a photographer with gallery and booking system.",
+      "tags": ["Next.js", "Framer Motion", "Tailwind CSS"],
+      "image": "/placeholder.svg?height=200&width=400"
+    }
+  ]
+}
