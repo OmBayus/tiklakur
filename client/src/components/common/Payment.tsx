@@ -493,6 +493,7 @@ export default function PaymentComponent({
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2 border rounded-md p-2 sm:p-3">
+                    <RadioGroupItem value="transfer" id="transfer" />
                     <Label
                       htmlFor="transfer"
                       className="flex-1 text-sm sm:text-base"
@@ -622,29 +623,8 @@ export default function PaymentComponent({
                   <div className="space-y-3 sm:space-y-4 pt-2 sm:pt-3">
                     <div className="bg-muted p-3 sm:p-4 rounded-md">
                       <h3 className="font-medium mb-2 text-sm sm:text-base">
-                        Banka Hesap Bilgileri
+                        Iyzico ya yönlendiriliyorsunuz
                       </h3>
-                      <p className="text-xs sm:text-sm mb-2">
-                        Aşağıdaki hesap bilgilerine ödeme yapabilirsiniz:
-                      </p>
-                      <div className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
-                        <p>
-                          <span className="font-medium">Banka:</span> Örnek
-                          Banka A.Ş.
-                        </p>
-                        <p>
-                          <span className="font-medium">Hesap Sahibi:</span>{' '}
-                          Şirket Adı
-                        </p>
-                        <p>
-                          <span className="font-medium">IBAN:</span> TR00 0000
-                          0000 0000 0000 0000 00
-                        </p>
-                        <p>
-                          <span className="font-medium">Açıklama:</span> Sipariş
-                          numaranızı belirtmeyi unutmayın
-                        </p>
-                      </div>
                     </div>
                   </div>
                 )}

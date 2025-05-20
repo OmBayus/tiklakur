@@ -44,7 +44,7 @@ export default function LoginPage({ onForgotPassword }: LoginPageProps) {
             <button
               type="button"
               onClick={onForgotPassword}
-              className="text-sm text-primary hover:underline"
+              className="text-sm text-primary hover:underline cursor-pointer"
             >
               Şifremi Unuttum
             </button>
