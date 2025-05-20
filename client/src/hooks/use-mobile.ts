@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from 'react';
 
+/**
+ * Generic media query hook
+ */
 export const useMediaQuery = (query: string): boolean => {
   const [matches, setMatches] = useState(false);
 
@@ -22,4 +25,11 @@ export const useMediaQuery = (query: string): boolean => {
   }, [query]);
 
   return matches;
+};
+
+/**
+ * Hook to detect mobile screen
+ */
+export const useIsMobile = (): boolean => {
+  return useMediaQuery('(max-width: 768px)');
 };
