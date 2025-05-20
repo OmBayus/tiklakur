@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,7 +14,11 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 
-export default function LoginPage() {
+interface LoginPageProps {
+  onForgotPassword: () => void;
+}
+
+export default function LoginPage({ onForgotPassword }: LoginPageProps) {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -38,9 +41,13 @@ export default function LoginPage() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label htmlFor="password">Şifre</Label>
-            <Link href="#" className="text-sm text-primary hover:underline">
+            <button
+              type="button"
+              onClick={onForgotPassword}
+              className="text-sm text-primary hover:underline"
+            >
               Şifremi Unuttum
-            </Link>
+            </button>
           </div>
           <div className="relative">
             <Input

@@ -1,0 +1,17 @@
+<configuration>
+
+    <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+<!--        <file>/var/log/myapp/app.log</file>-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/var/log/myapp/app-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+    </appender>
+
+    <logger name="com.tiklakur" level="INFO"/>
+
+    <root level="ERROR">
+        <appender-ref ref="ROLLING"/>
+    </root>
+</configuration>
