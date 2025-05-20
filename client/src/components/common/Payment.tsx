@@ -493,12 +493,11 @@ export default function PaymentComponent({
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2 border rounded-md p-2 sm:p-3">
-                    <RadioGroupItem value="transfer" id="transfer" />
                     <Label
                       htmlFor="transfer"
                       className="flex-1 text-sm sm:text-base"
                     >
-                      Havale / EFT
+                      Iyzico
                     </Label>
                   </div>
                 </RadioGroup>
