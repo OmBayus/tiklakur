@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 import { motion } from 'framer-motion';
 
-import Navbar from '@/components/common/Navbar';
+import NavbarRegister from '@/components/common/NavbarRegister';
 import Footer from '@/components/common/Footer';
 
 import ProductCard from '@/components/common/ProductCard';
@@ -211,9 +211,11 @@ export default function Products() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col">
-      <Navbar />
-      <div className="w-full px-4 sm:px-8 lg:px-[144px] flex-1 mt-6">
+    <main className="min-h-screen flex flex-col ">
+      <div className="lg:px-[144px]">
+        <NavbarRegister />
+      </div>
+      <div className="w-full px-4 sm:px-8 lg:px-[144px] flex-1 mt-3">
         <motion.div
           className="mt-6"
           variants={fadeUp}
@@ -221,7 +223,7 @@ export default function Products() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <div className=" text-black py-8 px-6 border-2 border-black rounded-3xl ">
+          <div className=" text-black  ">
             <h1 className="text-3xl font-bold mb-2">Web Templates</h1>
             <p className="text-lg max-w-3xl">
               Discover professional web templates for your next project.

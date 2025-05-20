@@ -31,7 +31,7 @@ export default function Home() {
 
         {/* First */}
         <motion.div
-          className="mt-6 sm:mt-15 md:mt-15"
+          className="mt-3 sm:mt-10 md:mt-10"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
