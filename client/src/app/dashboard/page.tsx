@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import ProductCard from '@/components/common/ProductCard';
 
 const fadeUpVariant = {
@@ -52,29 +51,24 @@ const products = [
 
 export default function DashboardHomePage() {
   return (
-    <div className="space-y-4 ml-4 ">
+    <div className="space-y-6">
       {/* Karşılama Alanı */}
-      <div className="flex items-center gap-4 ">
-        <Image
-          src="/png/pp.webp" // burada profil resmini koyacağınız yolu ayarlayın
-          alt="Profil Fotoğrafı"
-          width={100}
-          height={100}
-          className="rounded-full object-cover shadow-xl"
-        />
+      <div className="flex flex-col sm:flex-row sm:items-start gap-4">
         <div>
-          <div className="ml-4">
-            <h1 className="text-2xl font-bold">Merhaba Cemil 👋</h1>
-            <p className="text-gray-700">
-              TıklaKur a tekrar hoş geldin! Sol menüden işlemlerine
-              ulaşabilirsin.
-            </p>
-          </div>
+          <h1 className="text-xl sm:text-2xl font-bold">Merhaba Cemil 👋</h1>
+          <p className="text-gray-700 text-sm sm:text-base">
+            TıklaKur a tekrar hoş geldin! Sol menüden işlemlerine ulaşabilirsin.
+          </p>
         </div>
       </div>
 
-      <p className="text-2xl font-bold mt-10">Sizin için Önerilenler!</p>
-      <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 cursor-pointer">
+      {/* Öneriler */}
+      <p className="text-xl sm:text-2xl font-bold mt-12">
+        Sizin için Önerilenler!
+      </p>
+
+      {/* Ürün Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 w-full">
         {products.map((product, index) => (
           <motion.div
             key={product.id}
@@ -82,6 +76,7 @@ export default function DashboardHomePage() {
             whileInView={getFadeUp(index)}
             variants={fadeUpVariant}
             viewport={{ once: true }}
+            className="min-w-0 w-full"
           >
             <ProductCard
               title={product.title}

@@ -12,12 +12,10 @@ export default function RequestManagement() {
       id: '1',
       name: 'Ahmet Yılmaz',
       email: 'ahmet@example.com',
-      company: 'ABC Teknoloji',
-      phone: '+90 555 123 4567',
+
       requestType: 'Custom Template',
       templateCategory: 'E-commerce',
-      budget: '$1,000 - $2,500',
-      timeline: '2-4 weeks',
+
       features: [
         'Responsive Design',
         'E-commerce Functionality',
@@ -46,12 +44,10 @@ export default function RequestManagement() {
       id: '2',
       name: 'Zeynep Kaya',
       email: 'zeynep@example.com',
-      company: 'XYZ Design',
-      phone: '+90 555 987 6543',
+
       requestType: 'UI/UX Design',
       templateCategory: 'Portfolio',
-      budget: '$500 - $1,000',
-      timeline: '1-2 weeks',
+
       features: [
         'Responsive Design',
         'Blog/Content Management',
@@ -78,12 +74,10 @@ export default function RequestManagement() {
       id: '3',
       name: 'Mehmet Demir',
       email: 'mehmet@example.com',
-      company: 'Demir Holding',
-      phone: '+90 555 333 2222',
+
       requestType: 'Full Website Development',
       templateCategory: 'Corporate',
-      budget: '$2,500 - $5,000',
-      timeline: '1-2 months',
+
       features: [
         'Responsive Design',
         'User Authentication',
@@ -112,12 +106,10 @@ export default function RequestManagement() {
       id: '4',
       name: 'Ayşe Şahin',
       email: 'ayse@example.com',
-      company: '',
-      phone: '+90 555 444 5555',
+
       requestType: 'Template Modification',
       templateCategory: 'Blog',
-      budget: '$100 - $500',
-      timeline: 'Less than 1 week',
+
       features: [
         'Responsive Design',
         'Blog/Content Management',
