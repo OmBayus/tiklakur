@@ -1,9 +1,7 @@
 package com.tiklakur.template.entity;
 
 import com.tiklakur.mongocommon.MongoCommonEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,11 +13,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(collection = "templates")
+@Getter
+@Setter
 public class Template extends MongoCommonEntity {
 
     private String name;
     private String category;
 
-    @DocumentReference
+    @DocumentReference(lazy = false)
     private List<Section> sections;
 }
