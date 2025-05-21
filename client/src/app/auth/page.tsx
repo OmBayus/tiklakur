@@ -6,7 +6,8 @@ import SignupPage from '@/components/common/signup-form';
 import ForgotPasswordForm from '@/components/common/forgot-password';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
+
+import { HiCursorClick } from 'react-icons/hi';
 
 export default function Home() {
   const [activeForm, setActiveForm] = useState<'login' | 'signup'>('login');
@@ -39,13 +40,31 @@ export default function Home() {
       {/* Navbar */}
       <nav className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
         <div className="container mx-auto py-3 flex justify-center items-center">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-2xl font-bold tracking-tight text-gray-900 hover:text-primary transition-colors"
+          <a
+            href="#"
+            className="flex items-center space-x-2 cursor-pointer py-2"
           >
-            <div className="w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
-            <span className="font-semibold text-lg">envato</span>
-          </Link>
+            <div className="w-6 h-6 bg-white rounded flex items-center justify-center">
+              <HiCursorClick
+                className="w-6 h-6 text-purple-500"
+                style={{ fill: 'url(#gradient)' }}
+              />
+              <svg width="0" height="0">
+                <linearGradient
+                  id="gradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop stopColor="#8b5cf6" offset="0%" />
+                  <stop stopColor="#ec4899" offset="100%" />
+                </linearGradient>
+              </svg>
+            </div>
+
+            <span className=" text-lg font-bold  ">TıklaKur</span>
+          </a>
         </div>
       </nav>
       {/* Navbar ile içerik arasında boşluk */}
@@ -97,7 +116,7 @@ export default function Home() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <path d="m15 18-6-6 6-6"/>
+                  <path d="m15 18-6-6 6-6" />
                 </svg>
                 Giriş sayfasına dön
               </button>
@@ -106,7 +125,9 @@ export default function Home() {
           ) : (
             <>
               {activeForm === 'login' && (
-                <LoginPage onForgotPassword={() => setShowForgotPassword(true)} />
+                <LoginPage
+                  onForgotPassword={() => setShowForgotPassword(true)}
+                />
               )}
               {activeForm === 'signup' && <SignupPage />}
             </>

@@ -15,6 +15,7 @@ import {
   Menu,
   X,
 } from 'lucide-react';
+import { HiCursorClick } from 'react-icons/hi';
 
 const menuItems = [
   { name: 'TıklaKur', path: '/dashboard', icon: LayoutDashboard },
@@ -57,8 +58,20 @@ const Header = () => {
       <nav className="w-full flex flex-wrap items-center justify-between gap-4 px-4 pt-6 md:pt-4 pb-2 mt-2">
         {/* Logo */}
         <a href="#" className="flex items-center space-x-2 cursor-pointer">
-          <div className="w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
-          <span className="font-semibold text-lg">envato</span>
+          <div className="w-6 h-6 bg-white rounded flex items-center justify-center">
+            <HiCursorClick
+              className="w-6 h-6 text-purple-500"
+              style={{ fill: 'url(#gradient)' }}
+            />
+            <svg width="0" height="0">
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop stopColor="#8b5cf6" offset="0%" />
+                <stop stopColor="#ec4899" offset="100%" />
+              </linearGradient>
+            </svg>
+          </div>
+
+          <span className=" text-lg font-bold  ">TıklaKur</span>
         </a>
 
         {/* Masaüstü Search (sadece lg ve üstü) */}
