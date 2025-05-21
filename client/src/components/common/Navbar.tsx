@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { HiCursorClick } from 'react-icons/hi';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,8 +11,19 @@ const Header = () => {
       <div className="flex justify-between items-center w-full">
         {/* Logo */}
         <a href="#" className="flex items-center space-x-2 cursor-pointer">
-          <div className="w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
-          <span className="font-semibold text-lg">envato</span>
+          <div className="w-6 h-6 bg-white rounded flex items-center justify-center">
+            <HiCursorClick
+              className="w-6 h-6 text-purple-500"
+              style={{ fill: 'url(#gradient)' }}
+            />
+            <svg width="0" height="0">
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop stopColor="#8b5cf6" offset="0%" />
+                <stop stopColor="#ec4899" offset="100%" />
+              </linearGradient>
+            </svg>
+          </div>
+          <span className="text-lg font-bold">TıklaKur</span>
         </a>
 
         {/* Hamburger Menu (xl altı görünür) */}
@@ -35,33 +47,7 @@ const Header = () => {
         </button>
 
         {/* Desktop Menü (xl ve üstü) */}
-        <div className="hidden xl:flex flex-1 items-center justify-between ml-30">
-          {/* ✅ Search */}
-          <div className="flex w-full max-w-xl items-center gap-2">
-            <div className="flex rounded-full border-[1px] border-black w-full overflow-hidden">
-              <input
-                type="text"
-                placeholder="Search"
-                className="flex-1 px-4 py-2 text-sm focus:outline-none"
-              />
-              <button className="px-4 cursor-pointer">
-                <svg
-                  className="w-4 h-4 text-gray-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-
+        <div className="hidden xl:flex flex-1 items-center justify-end ml-30">
           {/* Giriş Yap */}
           <div className="hidden xl:flex items-center ml-6">
             <a
@@ -99,13 +85,6 @@ const Header = () => {
         </div>
 
         <div className="px-4 space-y-4">
-          {/* ✅ Mobile Search */}
-          <input
-            type="text"
-            placeholder="Search"
-            className="w-full px-4 py-2 text-sm border-[1px] border-black rounded-full focus:outline-none"
-          />
-
           {/* Giriş Yap */}
           <a
             href="#"
