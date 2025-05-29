@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+
+
+
+<artifactId>order</artifactId>
+
+<dependencies>
+    <dependency>
+        <groupId>com.tiklakur</groupId>
+        <artifactId>authentication-common</artifactId>
+        <version>${project.parent.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.tiklakur</groupId>
+        <artifactId>mongo-common</artifactId>
+        <version>${project.parent.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.tiklakur</groupId>
+        <artifactId>log-common</artifactId>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api -->
+    <dependency>
+        <groupId>jakarta.persistence</groupId>
+        <artifactId>jakarta.persistence-api</artifactId>
+        <version>3.2.0</version>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+    <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-jpa</artifactId>
+        <version>4.0.0-M3</version>
+    </dependency>
+</dependencies>
+<modelVersion>4.0.0</modelVersion>
+
+<name>${project.artifactId}</name>
+
+<parent>
+    <groupId>com.tiklakur</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</parent>
+
+<version>1.0.0-SNAPSHOT</version>
+</project>
+
+
+
+
