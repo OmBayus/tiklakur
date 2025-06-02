@@ -2,8 +2,10 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/order/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/parent/authentication-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/parent/common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/parent/log-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/parent/mongo-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/parent/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/parent/src/main/resources" charset="UTF-8" />

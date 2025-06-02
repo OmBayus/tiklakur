@@ -7,11 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="common" />
         <module name="mongo-common" />
         <module name="authentication-common" />
-        <module name="common" />
+        <module name="log-common" />
         <module name="user" />
         <module name="tenant" />
+        <module name="order" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -22,7 +24,9 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="authentication-common" options="-parameters" />
       <module name="common" options="-parameters" />
+      <module name="log-common" options="-parameters" />
       <module name="mongo-common" options="-parameters" />
+      <module name="order" options="-parameters" />
       <module name="tenant" options="-parameters" />
       <module name="user" options="-parameters" />
     </option>

@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @Document(collection = "orders")
 @Data
@@ -31,13 +32,16 @@ public class Order {
 
     private String specialId;
 
-    private String iyzicoToken;
-
-    private String iyzicoPaymentId;
-
-    private String conversationId;
-
+    private PaymentDetails paymentDetails;
 
     @CreatedDate
     private LocalDateTime createdAt = LocalDateTime.now();
+
+    @Data
+    @NoArgsConstructor
+    public static class PaymentDetails {
+        private String paymentId;  // For 3D Secure payments
+        private String token;      // For Checkout payments
+        private Map<String, Object> additionalDetails; // For any other payment-specific data
+    }
 }
