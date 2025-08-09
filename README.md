@@ -248,5 +248,3 @@ For support and questions:
 - Check the documentation in each service directory
 
 ---
-
-**Built with ❤️ by the Tiklakur Team**
